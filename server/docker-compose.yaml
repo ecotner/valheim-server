@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  valheim-server:
+    image: "lloesche/valheim-server"
+    ports:
+      - "2456-2457:2456-2457/udp"
+    volumes:
+      - "${PWD}/config:/config"
+      - "${PWD}/data:/opt/valheim"
+    env_file:
+      - ".env"
+    cap_add:
+      - "sys_nice"
