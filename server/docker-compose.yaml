@@ -4,6 +4,8 @@ services:
     image: "lloesche/valheim-server"
     ports:
       - "2456-2457:2456-2457/udp"
+      - "9000:9000/tcp"
+      - "9001:9001/tcp"
     volumes:
       - "${PWD}/config:/config"
       - "${PWD}/data:/opt/valheim"
