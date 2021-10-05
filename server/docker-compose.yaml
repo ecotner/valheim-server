@@ -2,6 +2,7 @@ version: "3.3"
 services:
   valheim-server:
     image: "lloesche/valheim-server"
+    container_name: "valheim-game-server"
     ports:
       - "2456-2457:2456-2457/udp"
       - "9000:9000/tcp"
