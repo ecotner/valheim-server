@@ -1,8 +1,14 @@
 VALHEIM_PORT = "2456"
 VALHEIM_APP_ID = "892970"
+// async function sha512_(str) {
+//   const buf = await crypto.subtle.digest("SHA-512", new TextEncoder("utf-8").encode(str));
+//   return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
+// }
+
 async function sha512(str) {
-  const buf = await crypto.subtle.digest("SHA-512", new TextEncoder("utf-8").encode(str));
-  return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
+    let md = forge.md.sha512.create()
+    md.update(str)
+    return md.digest().toHex()
 }
 
 function makeJsonBody(body) {
