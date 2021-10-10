@@ -109,17 +109,3 @@ function turnOff() {
         })
     })
 }
-
-
-async function confirmPassword() {
-    let password = document.getElementById("password-text").value
-    let hash = await sha512(password)
-    let body = makeJsonBody({hash: hash})
-    const url = "/confirm-password"
-    const init = {method: "POST", mode: "same-origin", body: body}
-    return await fetch(url, init).then((response) => {
-        return response.json()
-    }).then((payload) => {
-        return payload["password_correct"]
-    })
-}

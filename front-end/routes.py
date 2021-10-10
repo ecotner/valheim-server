@@ -38,11 +38,3 @@ def turn_off():
         if isinstance(v, datetime.datetime):
             payload[k] = strftime_gcp(v)
     return {"status": "ok", "response": payload, "password_correct": True}
-
-@app.post("/confirm-password")
-def confirm_password():
-    payload = request.json
-    if payload["hash"] == sha512(os.environ["SECRET_PASSWORD"]):
-        return {"password_correct": True}
-    else:
-        return {"password_correct": False}
