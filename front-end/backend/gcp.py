@@ -4,7 +4,6 @@ import os
 from google.auth import load_credentials_from_file
 from google.cloud.compute import InstancesClient, Instance
 from dotenv import load_dotenv
-from werkzeug.wrappers import response
 from backend.util import strptime_gcp
 
 load_dotenv()
