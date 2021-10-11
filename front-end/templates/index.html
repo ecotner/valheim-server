@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Valheim server control</title>
-    </head>
-    <body>
-        <h1>Valheim server control</h1>
-        <p>Password:</p>
+<html lang="en">
+<head>
+<title>Valheim server control</title>
+<meta charset="utf-8">
+</head>
+<link href="valheimstyle.css" rel="stylesheet">
+<body>
+<div id="wrapper">
+<header>
+  <h1><u>Valheim server control</u></h1>
+</header>
+<main>
+        <span class="bigstyle"><p>Password:</p></span>
         <input type="password" id="password-text">
         <p>Click here to print information about the compute instance status:</p>
         <button onclick="getInfo()">Get info</button>
@@ -21,5 +27,9 @@
 
         <script src="https://cdn.jsdelivr.net/npm/node-forge@0.7.0/dist/forge.min.js"></script>
         <script src="{{ url_for('static', filename='util.js') }}" type="text/javascript"></script>
-    </body>
+</main>
+<footer>
+  <p>Discord Brocheeties</p>
+</footer>
+</body>
 </html>
