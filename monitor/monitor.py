@@ -9,7 +9,9 @@ HTTP_PORT = 9000
 DT_FMT = "%Y-%m-%d %H:%M:%S.%f"
 PREV_FILE = "prev_status.json"
 SHUTDOWN_THRESHOLD = 15 * 60  # in seconds
+REFRESH_PERIOD = 10  # in seconds
 
+# erase previous status file if one exists
 if os.path.exists("prev_status.json"):
     os.remove(PREV_FILE)
 
@@ -50,7 +52,7 @@ while True:
         # if time exceeds threshold, shut down instance
         if diff > SHUTDOWN_THRESHOLD:
             print(f"Server idle for {diff} seconds; shutting down")
-    # else if there are players online, erase lockfile (if it exists) and wait again
+    # else if there are players online, erase status file (if it exists) and wait again
     elif os.path.exists(PREV_FILE):
         os.remove(PREV_FILE)
         continue
